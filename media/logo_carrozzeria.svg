@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="2161"
+   height="2161"
+   viewBox="0 0 2161 2161"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg3"
+   sodipodi:docname="Modolo_Fabrizio_logo.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3">
+    <rect
+       x="760"
+       y="440"
+       width="760"
+       height="120"
+       id="rect2" />
+    <rect
+       x="1100"
+       y="600"
+       width="1020"
+       height="280"
+       id="rect1" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="1718.2695"
+     inkscape:cy="801.85909"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2">
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <g
+     transform="translate(0.000000,2161.000000) scale(0.100000,-0.100000)"
+     stroke="none"
+     id="g3"
+     inkscape:label="LOGO">
+    <g
+       id="g2">
+      <path
+         style="fill:#ff0000;stroke:#000000;stroke-width:70;stroke-dasharray:none;stroke-opacity:1"
+         d="m 7446.3442,12068.248 c -1230.3369,0.728 -2667.8257,-496.319 -3752.351,-1103.907 3264.9476,916.805 3583.0228,551.953 3854.3222,458.402 55.9348,-19.287 50.7838,-61.621 140.3272,9.356 C 7850,11560 8170,11660 8203.1759,11665.977 l -121.617,-710.991 H 9700 c 244.238,720.94 718.13,2236.911 722.981,2255.014 -208.179,0 -1122.981,-100 -2976.6368,-1141.752 z"
+         id="path6"
+         sodipodi:nodetypes="ccssccccc" />
+      <path
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:70;stroke-dasharray:none;stroke-opacity:1"
+         d="m 10600,13220 c -15.231,-1.053 -690,-2175.003 -720,-2265.003 h 1650 l 210,610 h 1880 l 270,690 h -2020 c 30,100 70,225.003 100,325.003 940,550 2550.312,74.222 3840.976,-349.096 489.024,-165.907 889.024,-315.907 2419.024,-575.907 246.806,-41.941 -1355.438,308.494 -2273.536,665.003 -3850,1495.003 -5286.464,904.838 -5356.464,900 z"
+         id="path4"
+         sodipodi:nodetypes="scccccccssss" />
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     id="text1"
+     style="font-size:85.3333px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#1a1a1a"
+     transform="matrix(2.1676566,0,0,2.0371189,-2308.6538,-180.86542)"
+     inkscape:label="MODOLO FABRIZIO"><tspan
+       x="1100"
+       y="677.85215"
+       id="tspan4"><tspan
+         style="font-weight:bold;font-stretch:expanded;font-family:'FONTSPRING DEMO - Bank Gothic BT Medium';-inkscape-font-specification:'FONTSPRING DEMO - Bank Gothic BT Medium,  Bold Expanded'"
+         id="tspan3">MODOLO FABRIZIO</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     id="text2"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:expanded;font-size:85.3333px;font-family:'FONTSPRING DEMO - Bank Gothic BT Medium';-inkscape-font-specification:'FONTSPRING DEMO - Bank Gothic BT Medium,  Bold Expanded';writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#1a1a1a"
+     transform="matrix(2.411647,0,0,1.7135924,-1410.9615,451.00041)"
+     inkscape:label="CARROZZERIA"><tspan
+       x="760"
+       y="516.45863"
+       id="tspan6"><tspan
+         style="font-weight:500;font-family:'FONTSPRING DEMO - Bank Gothic BT Light';-inkscape-font-specification:'FONTSPRING DEMO - Bank Gothic BT Light,  Medium Expanded';display:inline"
+         id="tspan5">carrozzeria</tspan></tspan></text>
+</svg>

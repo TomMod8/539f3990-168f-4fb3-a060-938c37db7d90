@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrozzeria Auto - Servizi Professionali</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" />
+
+    <style>
+        body, html {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        [data-theme="light"] {
+            /* Primary: Red (#DC2626) -> HSL(0, 79%, 51%) */
+            --p: 0 79% 51%;
+            /* Primary Focus: Darker Red (#c02020) -> HSL(0, 70%, 44%) */
+            --pf: 0 70% 44%;
+            /* Primary Content: White (#FFFFFF) -> HSL(0, 0%, 100%) */
+            --pc: 0 0% 100%;
+            
+            /* Base 100 (Main BG): White (#FFFFFF) -> HSL(0, 0%, 100%) */
+            --b1: 0 0% 100%;
+            
+            /* Base 200 (Support BG 1): Light Gray (#F3F4F6) -> HSL(220, 17%, 96%) */
+            --b2: 220 17% 96%;
+            
+            /* Base 300 (Support BG 2): Light Gray (#E5E7EB) -> HSL(220, 14%, 93%) */
+            --b3: 220 14% 93%;
+            
+            /* Base Content (Text): Dark Gray (#1F2937) -> HSL(215, 30%, 17%) */
+            --bc: 215 30% 17%;
+            
+            /* Neutral (Footer BG): Black/Darkest Gray (#111827) -> HSL(222, 39%, 11%) */
+            --n: 222 39% 11%;
+            /* Neutral Focus: Darker shade of Neutral */
+            --nf: 222 39% 9%;
+            
+            /* Neutral Content (Footer Text): White (#FFFFFF) -> HSL(0, 0%, 100%) */
+            --nc: 0 0% 100%;
+        }
+
+        #hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        #hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            #hero-video-container video {
+                display: block;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                background-image: url('https://via.placeholder.com/768x1024.jpg?text=Hero+Mobile+Fallback');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: #DC2626;
+            margin: 1rem auto 0;
+        }
+
+        .animated-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .animated-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .animated-gallery-img {
+            transition: transform 0.3s ease;
+        }
+        .animated-gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-transparent {
+            background-color: rgba(17, 24, 39, 0.35);
+            backdrop-filter: blur(4px);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            backdrop-filter: blur(8px);
+            color: #1F2937; 
+        }
+        .navbar-scrolled .navbar-links a {
+            color: #1F2937;
+        }
+        .navbar-scrolled .navbar-links a:hover {
+            color: #DC2626;
+        }
+
+        #mobile-menu-dropdown {
+            background-color: #FFFFFF !important;
+            border: 1px solid #E5E7EB;
+        }
+        #mobile-menu-dropdown a {
+            color: #1F2937;
+        }
+    </style>
+</head>
+<body class="bg-base-100 text-base-content">
+
+    <header id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-4 md:px-8 navbar-transparent text-white">
+        <div class="navbar-start flex items-center gap-2">
+
+            <div class="dropdown">
+                <button tabindex="0" role="button" class="btn btn-ghost btn-square lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </button>
+                <ul id="mobile-menu-dropdown" tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow-lg rounded-box w-52">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#chi-siamo">Chi Siamo</a></li>
+                    <li><a href="#galleria">Galleria</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+
+            <ul class="menu menu-horizontal px-1 text-base font-medium navbar-links hidden lg:flex">
+                <li><a href="#home" class="hover:text-primary">Home</a></li>
+                <li><a href="#servizi" class="hover:text-primary">Servizi</a></li>
+                <li><a href="#chi-siamo" class="hover:text-primary">Chi Siamo</a></li>
+                <li><a href="#galleria" class="hover:text-primary">Galleria</a></li>
+                <li><a href="#contatti" class="hover:text-primary">Contatti</a></li>
+            </ul>
+        </div>
+        
+        <div class="navbar-end shrink-0">
+            <a href="tel:+390123456789" class="btn btn-primary btn-sm sm:btn-md whitespace-nowrap">Chiamaci Ora</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="hero min-h-screen relative">
+            <div id="hero-video-container">
+                <video autoplay muted loop playsinline poster="media/logo_carrozzeria.svg">
+                    <source src="media/hero.mp4" type="video/mp4">
+                    Il tuo browser non supporta il tag video.
+                </video>
+            </div>
+            
+            <div class="hero-overlay bg-black bg-opacity-60"></div>
+            
+        <div class="hero-content text-center text-white z-10 pt-[100px]" data-aos="fade-in" data-aos-delay="300">
+            <div class="max-w-md mx-auto">
+                
+                <div class="w-100 h-100 sm:w-200 sm:h-90 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
+                    <img src="media/logo_carrozzeria.svg" alt="Logo Carrozzeria" class="max-w-[100%] max-h-[100%] object-contain p-6 sm:p-8">
+                </div>
+                
+                <h1 class="mb-5 text-5xl font-bold text-white">La Tua Auto, Come Nuova</h1>
+                <p class="mb-5 text-lg text-white">Esperti in riparazioni di carrozzeria, verniciatura e cura dell'auto. Qualità e precisione al tuo servizio.</p>
+                <a href="#servizi" class="btn btn-primary btn-wide">Scopri i Nostri Servizi</a>
+            </div>
+        </div>
+        </section>
+
+        <section id="servizi" class="py-20 bg-base-100">
+            <div class="container max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 section-heading" data-aos="fade-up">
+                    Servizi Disponibili
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-hammer"></i>
+                            </div>
+                            <h3 class="card-title">Riparazione Carrozzeria</h3>
+                            <p class="text-sm">Interventi di precisione su ammaccature e danni strutturali.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-brush"></i>
+                            </div>
+                            <h3 class="card-title">Verniciatura</h3>
+                            <p class="text-sm">Verniciatura a forno con prodotti di alta qualità e tinte originali.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-window"></i>
+                            </div>
+                            <h3 class="card-title">Cristalli</h3>
+                            <p class="text-sm">Sostituzione e riparazione rapida di parabrezza e vetri.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-gem"></i>
+                            </div>
+                            <h3 class="card-title">Restauro Auto</h3>
+                            <p class="text-sm">Auto storiche o rovinate dalla ruggine.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-wrench-adjustable"></i>
+                            </div>
+                            <h3 class="card-title">Tagliando</h3>
+                            <p class="text-sm">Manutenzione ordinaria per mantenere la tua auto in perfetta efficienza.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-fan"></i>
+                            </div>
+                            <h3 class="card-title">Ricarica Clima</h3>
+                            <p class="text-sm">Controllo e ricarica dell'impianto di climatizzazione.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-droplet-half"></i>
+                            </div>
+                            <h3 class="card-title">Igienizzazione Ozono</h3>
+                            <p class="text-sm">Sanificazione completa dell'abitacolo contro batteri e odori.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg animated-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-body items-center text-center">
+                            <div class="p-3 bg-primary rounded-full text-primary-content mb-4 text-4xl leading-none">
+                                <i class="bi bi-car-front"></i>
+                            </div>
+                            <h3 class="card-title">Noleggio Auto</h3>
+                            <p class="text-sm">Vetture a noleggio per la tua mobilità durante la riparazione.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chi-siamo" class="py-20 bg-base-100">
+            <div class="container max-w-6xl mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    
+                    <div class="flex-1" data-aos="fade-right">
+                        <img src="media/carr.png" alt="Il nostro team all'opera" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    
+                    <div class="flex-1" data-aos="fade-left">
+                        <h2 class="text-4xl font-bold mb-6 section-heading text-left !mx-0 after:!mx-0">
+                            Chi Siamo
+                        </h2>
+                        <p class="mb-4 text-lg">Siamo una carrozzeria multigenerazionale, con oltre 50 anni di esperienza familiare nel restauro e nella cura dell'auto. Ogni generazione ha portato avanti competenza artigianale e un rispetto profondo per la qualità.</p>
+                        <p class="mb-4 text-lg">Il nostro team è a tua disposizione per offrirti soluzioni su misura, con attenzione ai dettagli.</p>
+                        
+                        <div id="stats-container" class="flex flex-col sm:flex-row gap-8 text-center sm:text-left">
+                            <div data-aos="fade-up" data-aos-delay="100">
+                                <span class="text-5xl font-bold text-primary counter" data-target="50">0</span>
+                                <p class="text-lg font-semibold">Anni di Esperienza</p>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="200">
+                                <span class="text-5xl font-bold text-primary counter" data-target="5000">0</span>+
+                                <p class="text-lg font-semibold">Clienti Soddisfatti</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="galleria" class="py-20 bg-base-200">
+            <div class="container max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 section-heading" data-aos="fade-up">
+                    Galleria Lavori
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="0">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Prima+e+Dopo+1')">
+                            <img src="media/placeholder.jpg" alt="Lavoro prima e dopo 1" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="100">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Officina+1')">
+                            <img src="media/placeholder.jpg" alt="La nostra officina 1" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Dettaglio+Lavoro')">
+                            <img src="media/placeholder.jpg" alt="Dettaglio verniciatura" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="300">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Prima+e+Dopo+2')">
+                            <img src="media/placeholder.jpg" alt="Lavoro prima e dopo 2" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="400">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Officina+2')">
+                            <img src="media/placeholder.jpg" alt="La nostra officina 2" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                    <div class="rounded-lg shadow-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="500">
+                        <a href="#" onclick="event.preventDefault(); showModal('https://via.placeholder.com/800x600.jpg?text=Lavoro+Finito')">
+                            <img src="media/placeholder.jpg" alt="Auto riparata" loading="lazy" class="w-full h-full object-cover animated-gallery-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatti" class="py-20 bg-base-100">
+            <div class="container max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 section-heading" data-aos="fade-up">
+                    Contatti e Orari
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <div class="card bg-base-200 shadow-lg" data-aos="fade-right">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4">Dove Trovarci</h3>
+                            <div class="overflow-hidden rounded-lg shadow-md h-64 lg:h-80">
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    marginheight="0"
+                                    marginwidth="0"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=12.042,45.697,12.690,46.149&amp;layer=mapnik&amp;marker=45.9229833137296,12.365917066723547"
+                                    style="border: 0"
+                                ></iframe>
+                            </div>
+                            <p class="mt-4 font-semibold">Via Vittorio Veneto, 1 - San Fior (TV)</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Via+Vittorio+Veneto+1+San+Fior+TV" target="_blank" rel="noopener" class="btn btn-primary mt-2">Vedi su Google Maps</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-200 shadow-lg" data-aos="fade-left">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4">Orari di Apertura</h3>
+                            
+                            <div class="overflow-x-auto mb-4">
+                                <table class="table w-full">
+                                    <tbody>
+                                        <tr class="hover" id="opening-hours-row">
+                                            <td class="font-semibold">Lunedì - Venerdì</td>
+                                            <td>08:00 - 12:00</td>
+                                            <td>14:00 - 18:00</td>
+                                        </tr>
+                                        <tr class="hover">
+                                            <td class="font-semibold">Sabato</td>
+                                            <td colspan="2">Chiuso</td>
+                                        </tr>
+                                        <tr class="hover">
+                                            <td class="font-semibold">Domenica</td>
+                                            <td colspan="2">Chiuso</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-sm mb-6">L'attività rimarra chiusa per ferie dal 3 al 23 agosto 2026.</p>
+
+                            <h3 class="card-title text-2xl mb-4">Contatti Rapidi</h3>
+                            <a href="tel:+39043876007" class="btn btn-primary btn-outline w-full mb-3">
+                                Tel: +39 0438 76007
+                            </a>
+                            <a href="mailto:carmodolo@gmail.com" class="btn btn-primary btn-outline w-full">
+                                Email: carmodolo@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer p-10 bg-neutral text-neutral-content border-t-4 border-red-500">
+        <aside>
+            <h6 class="footer-title">Ragione Sociale</h6>
+            <p>Carrozzeria Modolo S.n.c.</p>
+            <p>P.IVA 03597010267</p>
+        </aside>
+        <nav>
+            <h6 class="footer-title">Link Utili</h6>
+            <a href="#home" class="link link-hover">Home</a>
+            <a href="#servizi" class="link link-hover">Servizi</a>
+            <a href="#chi-siamo" class="link link-hover">Chi Siamo</a>
+            <a href="#galleria" class="link link-hover">Galleria</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Contatti</h6>
+            <p>Via Vittorio Veneto, 1<br>31020 San Fior (TV)</p>
+            <a href="tel:+39043876007" class="link link-hover">Tel: +39 04 3876007</a>
+            <a href="mailto:carmodolo@gmail.com" class="link link-hover">Email: carmodolo@gmail.com</a>
+        </nav>
+    </footer>
+    <footer class="footer footer-center p-4 bg-neutral-focus text-neutral-content text-sm">
+        <aside>
+            <p>Copyright © 2026 - Tutti i diritti riservati - Carrozzeria Modolo S.n.c.</p>
+        </aside>
+    </footer>
+
+
+    <dialog id="image-modal" class="modal">
+        <div class="modal-box w-11/12 max-w-5xl p-4">
+            <img id="modal-image" src="" alt="Immagine galleria ingrandita" class="w-full h-auto rounded-lg">
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>Chiudi</button>
+        </form>
+    </dialog>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            AOS.init({
+                duration: 600,
+                once: true,
+                disable: 'mobile'
+            });
+
+            const navbar = document.getElementById('navbar');
+
+            const scrollThreshold = 80;
+
+            const handleScroll = () => {
+                if (window.scrollY > scrollThreshold) {
+                    navbar.classList.add('navbar-scrolled');
+                    navbar.classList.remove('navbar-transparent', 'text-white');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                    navbar.classList.add('navbar-transparent', 'text-white');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+
+            const statsContainer = document.getElementById('stats-container');
+            const counters = document.querySelectorAll('.counter');
+            const animationDuration = 2000;
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / (animationDuration / 16);
+                
+                let current = 0;
+                
+                const updateCount = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current).toLocaleString('it-IT');
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target.toLocaleString('it-IT');
+                    }
+                };
+                updateCount();
+            };
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.2
+            };
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(animateCounter);
+                        observer.unobserve(statsContainer);
+                    }
+                });
+            }, observerOptions);
+
+            if (statsContainer) {
+                counterObserver.observe(statsContainer);
+            }
+
+            const dayOfWeek = new Date().getDay();
+            const rows = document.querySelectorAll('#opening-hours-row');
+            
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                rows.forEach(row => row.classList.add('bg-primary', 'bg-opacity-10'));
+            }
+
+        });
+
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+
+        function showModal(imageUrl) {
+            if (modal && modalImage) {
+                modalImage.src = imageUrl;
+                modal.showModal();
+            }
+        }
+
+    </script>
+
+</body>
+</html>
